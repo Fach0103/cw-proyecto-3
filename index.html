@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Categorías</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section id="categorySection">
+      <h2>Gestión de Categorías</h2>
+
+      <!-- Formulario de creación -->
+      <form id="categoryForm">
+        <input type="text" id="categoryInput" placeholder="Nombre de categoría" required />
+        <button type="submit" id="saveCategoryBtn">Guardar</button>
+      </form>
+
+      <!-- Lista dinámica de categorías -->
+      <ul id="categoryList" class="category-list">
+        <!-- Render dinámico por JS -->
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="./categoryManager.js"></script>
+</body>
+</html>
