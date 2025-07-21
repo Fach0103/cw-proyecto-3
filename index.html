@@ -2,27 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gestión financiera</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>finanzas - gestión</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <div id="layout">
-    <aside id="sidebar"></aside>
-    <main id="pagecontent">
-      <ul id="category-list"></ul>
+  <div class="contenedor-principal">
+    <aside class="sidebar">
+      <h2>finanzas</h2>
+      <ul>
+        <li><button onclick="mostrarSeccion('dashboard')">Dashboard</button></li>
+        <li><button onclick="mostrarSeccion('transacciones')">Transacciones</button></li>
+        <li><button onclick="mostrarSeccion('categorias')">Categorías</button></li>
+        <li><button onclick="mostrarSeccion('presupuestos')">Presupuestos</button></li>
+      </ul>
+    </aside>
+
+    <main class="contenido">
+      <section id="dashboard" style="display: none;">🧭 Aquí irá el dashboard</section>
+      <section id="transacciones" style="display: none;">💰 Registro de transacciones</section>
+      <section id="categorias">
+        <h2>Gestión de Categorías</h2>
+        <input id="nombre-categoria" type="text" placeholder="Nombre de la categoría" />
+        <button id="guardar-categoria">Guardar</button>
+        <ul id="lista-categorias"></ul>
+      </section>
+      <section id="presupuestos" style="display: none;">📊 Configuración de presupuestos</section>
     </main>
   </div>
 
-  <!-- plantilla para cada categoría -->
-  <template id="template-categoria">
-    <li class="categoria-item">
-      <span class="nombre"></span>
-      <button class="editar">editar</button>
-      <button class="eliminar">eliminar</button>
-    </li>
-  </template>
+  <div id="modal-eliminar" class="modal">
+    <p>¿Deseas eliminar esta categoría y todas sus transacciones?</p>
+    <button id="confirmar-eliminar">Eliminar</button>
+    <button id="cancelar-eliminar">Cancelar</button>
+  </div>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="categorias.js"></script>
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('main section').forEach(seccion => {
+        seccion.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
